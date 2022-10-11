@@ -1,16 +1,6 @@
 <html class="h-full bg-gray-100">
 <head>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        function copy(that){
-            var inp =document.createElement('input');
-            document.body.appendChild(inp)
-            inp.value =that.textContent
-            inp.select();
-            document.execCommand('copy',false);
-            inp.remove();
-        }
-    </script>
+
 </head>
 
 <body class="h-full">

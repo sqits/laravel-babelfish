@@ -7,15 +7,18 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up()
     {
-        Schema::create('languages', function (Blueprint $table) {
+        Schema::create('translations', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('key');
+            $table->string('value');
+            $table->json('suggestions');
+            $table->foreignId('language_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('language');
+        Schema::dropIfExists('translations');
     }
 };
