@@ -1,15 +1,34 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Sqits\Babelfish\Http\Controllers\Api\SuggestionController;
+use Sqits\Babelfish\Http\Controllers\Api\TranslationController;
 
-Route::prefix('api')->group(function () {
-    // Route::get('/stats', 'DashboardStatsController@index')->name('horizon.stats.index');
-    Route::post('/translations', 'Api\TranslationController@store')->name('babelfish.translations.store');
-    Route::get('/translations/{id}/suggestion', 'Api\SuggestionController@show')->name('babelfish.suggestion.show');
+Route::as('babelfish.')->group(function () {
+    Route::prefix('api')->group(function () {
 
+        Route::prefix('languages')->group(function () {
+            Route::get('/')->name('index');
+            Route::get('/{language}')->name('show');
+        });
+
+        Route::prefix('translations')
+            ->name('translations.')
+            ->group(function () {
+                Route::post('/', [TranslationController::class, 'store'])->name('store');
+            });
+
+        Route::prefix('translations')
+            ->name('suggestion.')
+            ->group(function () {
+                Route::get('/{id}/suggestion', [SuggestionController::class, 'show'])->name('show');
+            });
+    });
+
+    // Catch-all Route...
+    Route::get('/{view?}', 'HomeController@index')
+        ->where('view', '(.*)')
+        ->name('index');
 });
 
-// Catch-all Route...
-Route::get('/{view?}', 'HomeController@index')
-    ->where('view', '(.*)')
-    ->name('babelfish.index');
+

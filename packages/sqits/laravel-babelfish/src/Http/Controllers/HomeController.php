@@ -2,9 +2,6 @@
 
 namespace Sqits\Babelfish\Http\Controllers;
 
-use Illuminate\Support\Facades\App;
-use Laravel\Horizon\Horizon;
-
 class HomeController extends Controller
 {
     /**
