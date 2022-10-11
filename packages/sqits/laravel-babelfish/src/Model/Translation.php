@@ -1,6 +1,6 @@
 <?php
 
-namespace Sqits\Babelfish;
+namespace Sqits\Babelfish\Model;
 
 use Illuminate\Database\Eloquent\Model;
 

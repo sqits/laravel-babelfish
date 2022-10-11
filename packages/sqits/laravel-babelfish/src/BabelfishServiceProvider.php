@@ -37,11 +37,10 @@ class BabelfishServiceProvider extends ServiceProvider
         $this->publishes([
             realpath(__DIR__.'/../public') => public_path('vendor/babelfish'),
         ], ['babelfish-assets']);
-        
 
         $this->publishes([
-            __DIR__.'/../database/migrations/2022_10_11_132655_create_languages_table.php' => database_path('migrations/2022_10_11_132655_create_languages_table.php'),
-            __DIR__.'/../database/migrations/2022_10_11_132825_create_translations_table.php' => database_path('migrations/2022_10_11_132825_create_translations_table.php'),
+            __DIR__.'/../database/migrations/create_languages_table.php.stub' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_languages_table.php'),
+            __DIR__.'/../database/migrations/create_translations_table.php.stub' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_translations_table.php'),
         ], 'babelfish-migrations');
     }
 

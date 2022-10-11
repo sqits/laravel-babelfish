@@ -1,6 +1,6 @@
 <?php
 
-namespace Sqits\Babelfish;
+namespace Sqits\Babelfish\Service;
 
 use Illuminate\Support\Facades\Http;
 

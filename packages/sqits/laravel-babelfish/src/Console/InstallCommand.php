@@ -32,5 +32,8 @@ class InstallCommand extends Command
 
         $this->comment('Publishing Babelfish Configuration...');
         $this->callSilent('vendor:publish', ['--tag' => 'babelfish-config']);
+
+        $this->comment('Publishing Babelfish Migrations...');
+        $this->callSilent('vendor:publish', ['--tag' => 'babelfish-migrations']);
     }
 }
