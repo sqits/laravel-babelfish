@@ -492,6 +492,9 @@ video {
 .mr-2{
   margin-right: 0.5rem;
 }
+.mb-4{
+  margin-bottom: 1rem;
+}
 .block{
   display: block;
 }
@@ -527,6 +530,9 @@ video {
 }
 .h-5{
   height: 1.25rem;
+}
+.h-20{
+  height: 5rem;
 }
 .min-h-full{
   min-height: 100%;
@@ -797,6 +803,9 @@ video {
 .text-left{
   text-align: left;
 }
+.text-center{
+  text-align: center;
+}
 .align-middle{
   vertical-align: middle;
 }
@@ -812,11 +821,18 @@ video {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
+.text-xs{
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
 .font-medium{
   font-weight: 500;
 }
 .font-semibold{
   font-weight: 600;
+}
+.capitalize{
+  text-transform: capitalize;
 }
 .leading-5{
   line-height: 1.25rem;

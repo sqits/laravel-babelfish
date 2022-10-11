@@ -19,9 +19,9 @@
             <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
                 <div class="relative flex flex-wrap items-center justify-center lg:justify-between">
                     <!-- Logo -->
-                    <div class="absolute left-0 flex-shrink-0 py-5 lg:static">
+                    <div class="absolute left-0 flex-shrink-0 py-2 lg:static">
                         <a href="#">
-                            <img class="h-24 w-auto" src="{{asset('images/logo.png')}}" alt="">
+                            <img class="h-20 w-auto" src="{{asset('images/logo.png')}}" alt="">
                         </a>
                     </div>
 
@@ -32,7 +32,7 @@
                             <!-- Left nav -->
                             <div class="hidden lg:col-span-2 lg:block">
                                 <nav class="flex space-x-4">
-                                    <a href="#" class="text-white text-sm font-medium rounded-md bg-white bg-opacity-0 px-3 py-2 hover:bg-opacity-10" aria-current="page">Translations</a>
+                                    <a href="#" class="text-white text-sm font-medium rounded-md bg-white bg-opacity-0 px-3 py-2 hover:bg-opacity-10" aria-current="page">Vertalingen</a>
                                 </nav>
                             </div>
 
@@ -141,8 +141,8 @@
                 </div>
             </div>
         </main>
-        <footer>
-
+        <footer class="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8  text-center text-gray-500 mb-4">
+            <span class="text-xs" >&copy; Sqits 2022 -  all rights reserved</span>
         </footer>
     </div>
     <script type="module" src="{{asset(mix('app.js', 'vendor/babelfish'))}}"></script>

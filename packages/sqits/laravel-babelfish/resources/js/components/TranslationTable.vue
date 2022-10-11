@@ -50,22 +50,22 @@
                         <div v-if="showLanguages" class="absolute right-0 z-20 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
                             <div class="py-1" role="none">
                                 <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
-                                <a href="#" @click="selectedLangues = 'dutch'; showLanguages = false" :class="selectedLangues === 'dutch' ? 'bg-gray-100 text-gray-900' : 'text-gray-700'" class="text-gray-700 group flex items-center px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">
+                                <a href="#" @click="selectedLangues = 'nederlands'; showLanguages = false" :class="selectedLangues === 'nederlands' ? 'bg-gray-100 text-gray-900' : 'text-gray-700'" class="text-gray-700 group flex items-center px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">
                                     <!-- Heroicon name: mini/pencil-square -->
                                     <span class="fi fi-nl mr-2"></span>
                                     Nederlands
                                 </a>
-                                <a href="#" @click="selectedLangues = 'english'; showLanguages = false" :class="selectedLangues === 'english' ? 'bg-gray-100 text-gray-900' : 'text-gray-700'"  class="text-gray-700 group flex items-center px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">
+                                <a href="#" @click="selectedLangues = 'engels'; showLanguages = false" :class="selectedLangues === 'engels' ? 'bg-gray-100 text-gray-900' : 'text-gray-700'"  class="text-gray-700 group flex items-center px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">
                                     <!-- Heroicon name: mini/document-duplicate -->
                                     <span class="fi fi-gb-eng mr-2"></span>
                                     Engels
                                 </a>
-                                <a href="#" @click="selectedLangues = 'german'; showLanguages = false" :class="selectedLangues === 'german' ? 'bg-gray-100 text-gray-900' : 'text-gray-700'" class="text-gray-700 group flex items-center px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">
+                                <a href="#" @click="selectedLangues = 'duits'; showLanguages = false" :class="selectedLangues === 'duits' ? 'bg-gray-100 text-gray-900' : 'text-gray-700'" class="text-gray-700 group flex items-center px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">
                                     <!-- Heroicon name: mini/document-duplicate -->
                                     <span class="fi fi-de mr-2"></span>
                                     Duits
                                 </a>
-                                <a href="#" @click="selectedLangues = 'franch'; showLanguages = false" :class="selectedLangues === 'franch' ? 'bg-gray-100 text-gray-900' : 'text-gray-700'"  class="text-gray-700 group flex items-center px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">
+                                <a href="#" @click="selectedLangues = 'frans'; showLanguages = false" :class="selectedLangues === 'frans' ? 'bg-gray-100 text-gray-900' : 'text-gray-700'"  class="text-gray-700 group flex items-center px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">
                                     <!-- Heroicon name: mini/document-duplicate -->
                                     <span class="fi fi-fr mr-2"></span>
                                     Frans
@@ -81,7 +81,7 @@
                     </div>
                 </div>
             </div>
-            <div class="">
+            <div class="mt-4">
 
                 <div class="inline-block min-w-full py-2 align-middle">
                     <div class="border rounded-md">
@@ -90,37 +90,27 @@
                             <tr>
                                 <th scope="col" class="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:pl-6 lg:pl-8">Sleutel</th>
                                 <th scope="col" class="sticky top-0 z-10 hidden border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:table-cell">Vertaling</th>
-                                <th scope="col" class="sticky top-0 z-10 hidden border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell">Nederlands</th>
+                                <th scope="col" class="sticky top-0 z-10 hidden border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell capitalize" >{{selectedLangues}}</th>
                                 <th scope="col" class="sticky top-0 z-10 hidden border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:table-cell">Suggestie</th>
                             </tr>
                             </thead>
                             <tbody class="bg-white">
-                            <tr>
-                                <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">translation.title</td>
+                            <tr v-for="translation in translations" :key="`translation-${translation.id}`">
+                                <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">{{translation.key}}</td>
 
                                 <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden sm:table-cell">
-                                    <input value="title" class=" border px-4 py-2 rounded-md w-full "/>
+                                    <input v-model="translation.fallback" class=" border px-4 py-2 rounded-md w-full "/>
                                 </td>
                                 <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">
-                                    <input value="" class=" border px-4 py-2 rounded-md w-full "/>
+                                    <input  v-model="translation.value" class=" border px-4 py-2 rounded-md w-full "/>
                                 </td>
-                                <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden sm:table-cell">
+                                <td v-if="translation.suggestion === null" class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden sm:table-cell">
                                     <button @click="getSuggestion" type="button" class="inline-flex transition items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-sky-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-full">Suggestie ophalen</button>
                                 </td>
-                            </tr>
-                            <tr>
-                                <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">translation.subject</td>
-
-                                <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden sm:table-cell">
-                                    <input value="subject" class=" border px-4 py-2 rounded-md w-full "/>
-                                </td>
-                                <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">
-                                    <input value="" @blur="submitTranslation" class="border px-4 py-2 rounded-md w-full "/>
-                                </td>
-                                <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden sm:table-cell">
+                                <td v-else class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden sm:table-cell">
                                     <div class="mt-1 flex rounded-md shadow-sm">
-                                        <input type="text" disabled value="onderwerp" name="company-website" id="company-website" class="block border w-full min-w-0 flex-1 rounded-none rounded-l-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                                        <span onclick="copy(this)" class="inline-flex items-center rounded-r-md border border-l-0 border-gray-300 bg-gray-50 px-3 text-gray-500 sm:text-sm hover:bg-gray-200 duration-100  transition cursor-pointer">Overnemen</span>
+                                        <input type="text" v-model="translation.suggestion.value" disabled name="company-website" id="company-website" class="block border w-full min-w-0 flex-1 rounded-none rounded-l-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                                        <span @click="translation.value = translation.suggestion.value" class="inline-flex items-center rounded-r-md border border-l-0 border-gray-300 bg-gray-50 px-3 text-gray-500 sm:text-sm hover:bg-gray-200 duration-100  transition cursor-pointer">Overnemen</span>
                                     </div>
                                 </td>
                             </tr>
@@ -140,7 +130,25 @@ export default {
     data() {
         return {
             showLanguages: false,
-            selectedLangues : 'dutch'
+            selectedLangues : 'nederlands',
+            translations: [
+                {
+                    id: 1,
+                    key: 'translation.title',
+                    fallback: 'title' ,
+                    value: '',
+                    suggestion: null
+                },
+                {
+                    id: 2,
+                    key: 'translation.subject',
+                    fallback: 'subject',
+                    value: '',
+                    suggestion: {
+                        value: 'Onderwerp'
+                    }
+                }
+            ]
         }
     },
     methods: {
