@@ -17546,6 +17546,7 @@ __webpack_require__.r(__webpack_exports__);
     setLanguages: function setLanguages(langauge) {
       this.selectedLangues.id = langauge.id;
       this.selectedLangues.value = langauge.name;
+      this.showLanguages = false;
     }
   }
 });

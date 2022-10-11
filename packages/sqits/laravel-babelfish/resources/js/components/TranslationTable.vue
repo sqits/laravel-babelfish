@@ -183,6 +183,7 @@ export default {
         setLanguages(langauge){
             this.selectedLangues.id = langauge.id
             this.selectedLangues.value = langauge.name
+            this.showLanguages = false
         }
     }
 }
