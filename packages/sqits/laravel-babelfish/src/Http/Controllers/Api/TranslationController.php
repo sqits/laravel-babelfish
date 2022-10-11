@@ -11,32 +11,27 @@ class TranslationController extends Controller
     public function store(Request $request)
     {
         try {
-            $this->validate($request, [
-                'key' => 'required',
-                'value' => 'required',
+            $validated = $this->validate($request, [
+                'key' => 'required|string',
+                'value' => 'required|string',
+                'language_id' => 'required|exists:languages,id',
             ]);
 
-            $translation = Translation::query()
-                ->create()
-            ([
-                'key' => $request->input('key'),
-                'language_id' => $request->input('language_id'),
-            ]);
-        } catch(\Exception $e) {
-             return response()->json([
+            Translation::query()
+                ->updateOrCreate([
+                    'key' => $validated['key'],
+                    'language_id' => $validated['language_id'],
+                ], [
+                    'key' => $validated['key'],
+                    'value' => $validated['value'],
+                    'language_id' => $validated['language_id'],
+                ]);
+
+            return response()->json();
+        } catch (\Exception $e) {
+            return response()->json([
                 'message' => $e->getMessage()
-            ], 500);
+            ], 422);
         }
-
-
-//        $translation = Translation::firstOrNew([
-//            'key' => $request->input('key'),
-//            'language_id' => $request->input('language'),
-//        ]);
-//
-//        $translation->translation = $request->input('translation');
-//        $translation->save();
-//
-//        return $translation;
     }
 }

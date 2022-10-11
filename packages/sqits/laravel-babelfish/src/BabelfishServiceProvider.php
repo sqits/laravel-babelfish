@@ -5,6 +5,7 @@ namespace Sqits\Babelfish;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Sqits\Babelfish\Console\InstallCommand;
+use Sqits\Babelfish\Service\Translator;
 
 class BabelfishServiceProvider extends ServiceProvider
 {
@@ -18,6 +19,10 @@ class BabelfishServiceProvider extends ServiceProvider
         $this->commands([
             InstallCommand::class
         ]);
+
+        $this->app->bind(Translator::class, function () {
+            return new Translator();
+        });
 
         Route::group([
             'domain' => config('babelfish.domain', null),
