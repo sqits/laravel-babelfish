@@ -43,5 +43,5 @@ return [
 
     'api_key' => env('DEEPL_API_KEY'),
 
-    'default_language' => config('app.locale','nl'),
+    'default_language' => config('app.locale','en'),
 ];

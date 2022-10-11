@@ -4,12 +4,11 @@ namespace Sqits\Babelfish\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Support\Facades\Config;
+//use Illuminate\Support\Facades\Config;
 use Sqits\Babelfish\Services\LanguageService;
 
 class Language extends Model
 {
-
     protected $guarded = ['id'];
 
     /**
