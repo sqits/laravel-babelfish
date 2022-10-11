@@ -5,6 +5,7 @@ namespace Sqits\Babelfish;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Sqits\Babelfish\Console\InstallCommand;
+use Sqits\Babelfish\Service\Translator;
 
 class BabelfishServiceProvider extends ServiceProvider
 {
@@ -18,6 +19,10 @@ class BabelfishServiceProvider extends ServiceProvider
         $this->commands([
             InstallCommand::class
         ]);
+
+        $this->app->bind(Translator::class, function () {
+            return new Translator();
+        });
 
         Route::group([
             'domain' => config('babelfish.domain', null),
@@ -40,7 +45,7 @@ class BabelfishServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/../database/migrations/create_languages_table.php.stub' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_languages_table.php'),
-            __DIR__.'/../database/migrations/create_translations_table.php.stub' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_translations_table.php'),
+            __DIR__.'/../database/migrations/create_translations_table.php.stub' => database_path('migrations/'.now()->addDay()->format('Y_m_d_His').'_create_translations_table.php'),
         ], 'babelfish-migrations');
     }
 
