@@ -1,0 +1,39 @@
+{
+    "name": "sqits/laravel-babelfish",
+    "authors": [
+        {
+            "name": "Sqits",
+            "email": "info@sqits.nl"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "laravel/framework": "^9.0"
+    },
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "Sqits\\Babelfish\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Sqits\\Babelfish\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Sqits\\Babelfish\\BabelfishServiceProvider"
+            ]
+        }
+    },
+    "require-dev": {
+        "pestphp/pest": "^1.22"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
