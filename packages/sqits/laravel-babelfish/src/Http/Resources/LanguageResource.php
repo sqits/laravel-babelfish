@@ -12,6 +12,7 @@ class LanguageResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
+            'code' => $this->code,
             'translations' => $this->whenLoaded('translations', TranslationResource::collection($this->translations))
         ];
     }

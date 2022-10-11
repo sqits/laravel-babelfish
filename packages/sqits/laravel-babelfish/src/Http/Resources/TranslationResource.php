@@ -10,9 +10,8 @@ class TranslationResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id' => $this->id,
             'key' => $this->key,
-            'fallback' => '',
+            'fallback' => $this->fallback ?? null,
             'value' => $this->value,
             'suggestions' => $this->suggestions,
         ];

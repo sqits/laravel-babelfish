@@ -22,21 +22,7 @@ class LanguageController extends Controller
     {
         $language->load('translations');
 
-        $service = new LanguageService();
-
-        $defaultKeys = $service->getDefaultTranslationKeys();
-
-        foreach($defaultKeys as $key => $value) {
-            if (!$language->translations()->where('key', $key)->exists()) {
-                $translation = Translation::make([
-                    'key' => $key,
-                    'value' => $value,
-                    'language_id' => $language->id
-                ]);
-
-                $language->translations->push($translation);
-            }
-        }
+        $language->syncTranslations();
 
         return LanguageResource::make($language);
     }
