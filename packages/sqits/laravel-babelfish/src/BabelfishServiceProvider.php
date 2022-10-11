@@ -28,7 +28,7 @@ class BabelfishServiceProvider extends ServiceProvider
             'domain' => config('babelfish.domain', null),
             'prefix' => config('babelfish.path'),
             'namespace' => 'Sqits\Babelfish\Http\Controllers',
-            'middleware' => config('babelfish.middleware', 'web'),
+            'middleware' => config('babelfish.middleware'),
         ], function () {
             $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
         });

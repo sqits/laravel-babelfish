@@ -4,7 +4,8 @@ namespace Sqits\Babelfish\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Sqits\Babelfish\Model\Translation;
+use Sqits\Babelfish\Models\Language;
+use Sqits\Babelfish\Models\Translation;
 
 class TranslationController extends Controller
 {
@@ -14,23 +15,27 @@ class TranslationController extends Controller
             $validated = $this->validate($request, [
                 'key' => 'required|string',
                 'value' => 'required|string',
-                'language_id' => 'required|exists:languages,id',
+            ]);
+
+            $language = Language::query()->firstOrCreate([
+                'name' => 'Nederlands',
+                'code' => 'nl'
             ]);
 
             Translation::query()
                 ->updateOrCreate([
                     'key' => $validated['key'],
-                    'language_id' => $validated['language_id'],
                 ], [
                     'key' => $validated['key'],
                     'value' => $validated['value'],
-                    'language_id' => $validated['language_id'],
+                    'language_id' => $language->id
                 ]);
 
             return response()->json();
         } catch (\Exception $e) {
+            dd($e);
             return response()->json([
-                'message' => $e->getMessage()
+                'message' => 'Something when wrong while saving the translation'
             ], 422);
         }
     }

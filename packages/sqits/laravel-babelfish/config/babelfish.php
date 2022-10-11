@@ -39,6 +39,9 @@ return [
     |
     */
 
-    'middleware' => ['web'],
+    'middleware' => [],
 
+    'api_key' => env('DEEPL_API_KEY'),
+
+    'default_language' => config('app.locale','nl'),
 ];

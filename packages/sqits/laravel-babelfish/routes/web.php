@@ -7,7 +7,6 @@ use Sqits\Babelfish\Http\Controllers\Api\LanguageController;
 
 Route::as('babelfish.')->group(function () {
     Route::prefix('api')->group(function () {
-
         Route::prefix('languages')->group(function () {
             Route::get('/', [LanguageController::class, 'index'])->name('index');
             Route::get('/{language}', [LanguageController::class, 'show'])->name('show');
@@ -19,10 +18,10 @@ Route::as('babelfish.')->group(function () {
                 Route::post('/', [TranslationController::class, 'store'])->name('store');
             });
 
-        Route::prefix('translations')
-            ->name('suggestion.')
+        Route::prefix('suggestions')
+            ->name('suggestions.')
             ->group(function () {
-                Route::get('/{id}/suggestion', [SuggestionController::class, 'show'])->name('show');
+                Route::get('/', [SuggestionController::class, 'show'])->name('show');
             });
     });
 

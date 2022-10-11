@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Language extends Model
 {
+
+    protected $guarded = ['id'];
+
     /**
      * Get translations of the language.
      *
