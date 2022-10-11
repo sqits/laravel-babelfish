@@ -28,7 +28,7 @@ class InstallCommand extends Command
     public function handle()
     {
         $this->comment('Publishing Babelfish Assets...');
-        $this->callSilent('vendor:publish', ['--tag' => 'babelfish-assets']);
+        $this->callSilent('vendor:publish', ['--tag' => 'babelfish-assets', '--force' => true]);
 
         $this->comment('Publishing Babelfish Configuration...');
         $this->callSilent('vendor:publish', ['--tag' => 'babelfish-config']);

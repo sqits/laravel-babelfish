@@ -14,6 +14,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('babelfish::test', []);
+        return view('babelfish::layout', []);
     }
 }

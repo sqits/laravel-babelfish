@@ -6,10 +6,5 @@ module.exports = {
     theme: {
         extend: {},
     },
-    plugins: [],
-    safelist: [
-        {
-            pattern: /./
-        },
-    ]
+    plugins: []
 }

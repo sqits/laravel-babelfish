@@ -20,7 +20,8 @@ mix
     .options({
         processCssUrls: false,
         postCss: [ tailwindcss('./tailwind.config.js') ],
-    });
+    })
+    .vue();
 
 // mix.options({
 //     terser: {
