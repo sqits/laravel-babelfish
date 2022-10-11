@@ -27,10 +27,10 @@ class InstallCommand extends Command
      */
     public function handle()
     {
-        // temporary for development
-        $target = __DIR__ . '/../../public';
-        $link = public_path('/vendor/babelfish');
-        $this->laravel->make('files')->link($target, $link);
+//        // temporary for development
+//        $target = __DIR__ . '/../../public';
+//        $link = public_path('/vendor/babelfish');
+//        $this->laravel->make('files')->link($target, $link);
 
 //        $this->comment('Publishing Babelfish Assets...');
 //        $this->callSilent('vendor:publish', ['--tag' => 'babelfish-assets', '--force' => true]);
