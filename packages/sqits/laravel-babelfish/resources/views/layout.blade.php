@@ -136,68 +136,7 @@
 
                 <div class="bg-white rounded-md shadow p-4">
                     <div class="px-4 ">
-                        <div class="sm:flex sm:items-center">
-                            <div class="sm:flex-auto mt-4">
-                                <h1 class="text-xl font-semibold text-gray-900">Vertalingen</h1>
-                                <p class="mt-2 text-sm text-gray-700">Hierin staan alle vertalingen van de keys in de applicatie</p>
-                            </div>
-                            <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
-                                <button type="button" class="inline-flex transition items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-sky-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto">Publiceren</button>
-                            </div>
-                        </div>
-                        <div class="mt-4 flex flex-col  p-4 -mx-4">
-
-
-
-                            <translation-table></translation-table>
-{{--                            <div class="">--}}
-{{--                                <div class="inline-block min-w-full py-2 align-middle">--}}
-{{--                                    <div class="border rounded-md">--}}
-{{--                                        <table class="min-w-full border-separate" style="border-spacing: 0">--}}
-{{--                                            <thead class="bg-gray-50">--}}
-{{--                                            <tr>--}}
-{{--                                                <th scope="col" class="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:pl-6 lg:pl-8">Sleutel</th>--}}
-{{--                                                <th scope="col" class="sticky top-0 z-10 hidden border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:table-cell">Vertaling</th>--}}
-{{--                                                <th scope="col" class="sticky top-0 z-10 hidden border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell">Nederlands</th>--}}
-{{--                                                <th scope="col" class="sticky top-0 z-10 hidden border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:table-cell">Suggestie</th>--}}
-{{--                                            </tr>--}}
-{{--                                            </thead>--}}
-{{--                                            <tbody class="bg-white">--}}
-{{--                                            <tr>--}}
-{{--                                                <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">translation.title</td>--}}
-
-{{--                                                <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden sm:table-cell">--}}
-{{--                                                    <input value="title" class=" border px-4 py-2 rounded-md w-full "/>--}}
-{{--                                                </td>--}}
-{{--                                                <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">--}}
-{{--                                                    <input value="" class=" border px-4 py-2 rounded-md w-full "/>--}}
-{{--                                                </td>--}}
-{{--                                                <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden sm:table-cell">--}}
-{{--                                                    <button type="button" class="inline-flex transition items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-sky-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-full">Suggestie ophalen</button>--}}
-{{--                                                </td>--}}
-{{--                                            </tr>--}}
-{{--                                            <tr>--}}
-{{--                                                <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">translation.subject</td>--}}
-
-{{--                                                <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden sm:table-cell">--}}
-{{--                                                    <input value="subject" class=" border px-4 py-2 rounded-md w-full "/>--}}
-{{--                                                </td>--}}
-{{--                                                <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">--}}
-{{--                                                    <input value="" class=" border px-4 py-2 rounded-md w-full "/>--}}
-{{--                                                </td>--}}
-{{--                                                <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden sm:table-cell">--}}
-{{--                                                    <div class="mt-1 flex rounded-md shadow-sm">--}}
-{{--                                                        <span onclick="copy(this)" class="inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-3 text-gray-500 sm:text-sm hover:bg-gray-200 duration-100  transition cursor-pointer">Overnemen</span>--}}
-{{--                                                        <input type="text" disabled value="onderwerp" name="company-website" id="company-website" class="block border w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">--}}
-{{--                                                    </div>--}}
-{{--                                                </td>--}}
-{{--                                            </tr>--}}
-{{--                                            </tbody>--}}
-{{--                                        </table>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-                        </div>
+                        <translation-table></translation-table>
                     </div>
                 </div>
             </div>
