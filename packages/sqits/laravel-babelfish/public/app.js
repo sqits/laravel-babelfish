@@ -17478,24 +17478,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 
 
-
-// axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-//
-// let token = document.head.querySelector('meta[name="csrf-token"]');
-//
-// if (token) {
-//     axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
-// }
-//
-// Vue.prototype.$http = axios.create();
-
-(0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)({
+axios__WEBPACK_IMPORTED_MODULE_1__["default"].defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
+var token = document.head.querySelector('meta[name="csrf-token"]');
+if (token) {
+  axios__WEBPACK_IMPORTED_MODULE_1__["default"].defaults.headers.common["X-CSRF-TOKEN"] = token.content;
+}
+var app = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)({
   data: function data() {
     return {
-      message: 'Hello Vue!'
+      // default data
     };
   }
 }).mount('#babelfish');
+app.config.globalProperties.$axios = axios__WEBPACK_IMPORTED_MODULE_1__["default"].create();
 
 /***/ }),
 
