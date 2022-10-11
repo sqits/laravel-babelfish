@@ -2,7 +2,9 @@
 
 namespace Sqits\Babelfish;
 
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Sqits\Babelfish\Console\InstallCommand;
 
 class BabelfishServiceProvider extends ServiceProvider
 {
@@ -13,9 +15,28 @@ class BabelfishServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->commands([
+            InstallCommand::class
+        ]);
+
+        Route::group([
+            'domain' => config('babelfish.domain', null),
+            'prefix' => config('babelfish.path'),
+            'namespace' => 'Sqits\Babelfish\Http\Controllers',
+            'middleware' => config('babelfish.middleware', 'web'),
+        ], function () {
+            $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+        });
+
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'babelfish');
+
         $this->publishes([
             __DIR__.'/../config/babelfish.php' => config_path('babelfish.php'),
-        ], 'config');
+        ], 'babelfish-config');
+
+        $this->publishes([
+            realpath(__DIR__.'/../public') => public_path('vendor/babelfish'),
+        ], ['babelfish-assets']);
     }
 
     /**

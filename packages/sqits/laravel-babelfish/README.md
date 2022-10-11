@@ -4,19 +4,20 @@
 
 ## Installation and usage
 
-This package requires PHP 7.0 and Laravel 9.0 or higher. Install the package by running the following command in your console;
+This package requires PHP 7.0 and Laravel 9.0 or higher.  
+You may install Horizon into your project using the Composer package manager:
 
 ``` bash
 composer require sqits/laravel-babelfish
 ```
 
-You can publish the config file with:
+After installing Babelfish, publish its assets using the `babelfish:install` Artisan command:
 
 ``` bash
-php artisan vendor:publish --provider="Sqits\Babelfish\BabelfishServiceProvider" --tag="config"
+php artisan babelfish:install
 ```
-a
-This is the contents of the published config file:
+
+### Configuration
 
 ``` php
 return [
@@ -24,7 +25,7 @@ return [
 ];
 ```
 
-### Changelog
+## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
 
