@@ -52,7 +52,7 @@
                                 <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
                                 <a v-for="language in languages" :key="`languages-${language.id}`" @click="setLanguages(language)" :class="selectedLangues.value === language.name ? 'bg-gray-100 text-gray-900' : 'text-gray-700'" class="text-gray-700 group flex items-center px-4 py-2 text-sm capitalize" role="menuitem" tabindex="-1" id="menu-item-0">
                                     <!-- Heroicon name: mini/pencil-square -->
-                                    <span class="fi fi-nl mr-2" :class="`fi-${language.code}`"></span>
+                                    <span class="fi mr-2" :class="`fi-${language.code  === 'en' ? 'gb-eng' : language.code}`"></span>
                                     {{language.name}}
                                 </a>
                             </div>
@@ -84,15 +84,15 @@
                                 <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">
                                     <input  v-model="translation.value" class=" border px-4 py-2 rounded-md w-full "/>
                                 </td>
-<!--                                <td v-if="translation.suggestions === null" class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden sm:table-cell">-->
-<!--                                    <button @click="getSuggestion" type="button" class="inline-flex transition items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-sky-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-full">Suggestie ophalen</button>-->
-<!--                                </td>-->
-<!--                                <td v-else class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden sm:table-cell">-->
-<!--                                    <div class="mt-1 flex rounded-md shadow-sm">-->
-<!--                                        <input type="text" v-model="translation.suggestions.value" disabled name="company-website" id="company-website" class="block border w-full min-w-0 flex-1 rounded-none rounded-l-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">-->
-<!--                                        <span @click="translation.value = translation.suggestions.value" class="inline-flex items-center rounded-r-md border border-l-0 border-gray-300 bg-gray-50 px-3 text-gray-500 sm:text-sm hover:bg-gray-200 duration-100  transition cursor-pointer">Overnemen</span>-->
-<!--                                    </div>-->
-<!--                                </td>-->
+                                <td v-if="translation.suggestions === null" class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden sm:table-cell">
+                                    <button @click="getSuggestion" type="button" class="inline-flex transition items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-sky-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-full">Suggestie ophalen</button>
+                                </td>
+                                <td v-else class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden sm:table-cell">
+                                    <div class="mt-1 flex rounded-md shadow-sm">
+                                        <input type="text"  disabled name="company-website" id="company-website" class="block border w-full min-w-0 flex-1 rounded-none rounded-l-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                                        <span  class="inline-flex items-center rounded-r-md border border-l-0 border-gray-300 bg-gray-50 px-3 text-gray-500 sm:text-sm hover:bg-gray-200 duration-100  transition cursor-pointer">Overnemen</span>
+                                    </div>
+                                </td>
                             </tr>
                             </tbody>
                         </table>
